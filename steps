@@ -1,0 +1,16 @@
+Automatic Starting and Restarting of Weblogic Servers
+
+
+Steps :
+
+1. Create fmw_domain-nm in /etc/init.d
+2. chmod 755 /etc/init.d/fmw_domain-nm
+
+Register fmw_domain-nm with init.d
+3. chkconfig --add fmw_domain-nm
+4. go to nodemanager.properties and set CrashRecoveryEnabled=true
+5. service fmw_domain-nm start
+
+Start Admin Server using Nodemanager
+6. nmConnect('weblogic','welcome1','oracle-vm.com','5556','fmw_domain','/u02/oracle/Oracle/Middleware/Oracle_Home/domains/fmw_domain','Plain')
+   nmStart ('AdminServer')
